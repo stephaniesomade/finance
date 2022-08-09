@@ -1,0 +1,22 @@
+<h1> 
+  August
+</h1>
+  <h5>
+    Expenses for August
+    <br>
+    <h6>Direct Debits: {{total}}
+    </h6>
+    </h5>
+    <h5>
+    {{#each expenses}}
+    {{this.category}} : -£{{this.amount}}
+        <form action="/expenses/delete/january/{{this.category}}/{{this.amount}}" method="POST">
+    <button>Delete</button>
+    </form>
+    <br>
+    <br>
+    {{/each}}
+  </h5>
+<form action="/expenses/august">
+  <button>Update Expense Report</button>
+</form>

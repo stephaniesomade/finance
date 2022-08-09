@@ -1,0 +1,20 @@
+
+<form action="/" method="get" class="button-8">
+<button>Back</button>
+</form>
+
+<h3>Profile Page</h3>
+<strong>Name</strong>: {{name}}<br>
+<strong>Email</strong>: {{email}}<br>
+{{#each wishlist}}
+{{this}}<br>
+{{/each}}
+<strong>Favourite Trainers</strong>: <br> {{#each trainers}}
+{{this}}<br>
+{{!-- <form action="" method="post">
+  <input type="text" name="trainers"> --}}
+  {{!-- </form> --}}
+  {{!-- THE DOM --}}
+{{/each}}
+<br>
+Joined {{createdAt}}
