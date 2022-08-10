@@ -18,7 +18,7 @@ Button with Update Expense Report
     <h5>
     {{#each expenses}}
     {{this.category}} : -£{{this.amount}}
-        <form action="/expenses/delete/march/{{this.category}}/{{this.amount}}" method="POST">
+        <form action="/delete/march/{{this.category}}/{{this.amount}}" method="POST">
     <button>Delete</button>
     </form>
         <form action="/expenses/{{this.month}}/{{this.id}}" method="get">

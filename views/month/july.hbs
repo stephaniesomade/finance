@@ -13,7 +13,7 @@
     <h5>
     {{#each expenses}}
     {{this.category}} : -£{{this.amount}}
-        <form action="/expenses/delete/july/{{this.category}}/{{this.amount}}" method="POST">
+        <form action="/delete/july/{{this.category}}/{{this.amount}}" method="POST">
     <button>Delete</button>
     </form>
         <form action="/expenses/{{this.month}}/{{this.id}}" method="get">
