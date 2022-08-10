@@ -119,10 +119,6 @@ const ExpenseController = {
         const category = req.body.Text[1]
         const month = req._parsedUrl.href.substring(1)
         let add = new Expenses({month: month, category: category, amount: amount})
-        console.log(amount)
-        console.log(category)
-        console.log(month)
-        console.log("All added!")
         add.save((err) => { 
           if (err) { 
             throw err;
@@ -145,10 +141,6 @@ const ExpenseController = {
         const category = req.body.Text[1]
         const month = req._parsedUrl.href.substring(1)
         let add = new Expenses({month: month, category: category, amount: amount})
-        console.log(amount)
-        console.log(category)
-        console.log(month)
-        console.log("All added!")
         add.save((err) => { 
           if (err) { 
             throw err;
@@ -170,10 +162,6 @@ const ExpenseController = {
         const category = req.body.Text[1]
         const month = req._parsedUrl.href.substring(1)
         let add = new Expenses({month: month, category: category, amount: amount})
-        console.log(amount)
-        console.log(category)
-        console.log(month)
-        console.log("All added!")
         add.save((err) => { 
           if (err) { 
             throw err;
@@ -195,10 +183,6 @@ const ExpenseController = {
         const category = req.body.Text[1]
         const month = req._parsedUrl.href.substring(1)
         let add = new Expenses({month: month, category: category, amount: amount})
-        console.log(amount)
-        console.log(category)
-        console.log(month)
-        console.log("All added!")
         add.save((err) => { 
           if (err) { 
             throw err;
@@ -220,10 +204,6 @@ const ExpenseController = {
         const category = req.body.Text[1]
         const month = req._parsedUrl.href.substring(1)
         let add = new Expenses({month: month, category: category, amount: amount})
-        console.log(amount)
-        console.log(category)
-        console.log(month)
-        console.log("All added!")
         add.save((err) => { 
           if (err) { 
             throw err;
@@ -246,10 +226,6 @@ const ExpenseController = {
         const category = req.body.Text[1]
         const month = req._parsedUrl.href.substring(1)
         let add = new Expenses({month: month, category: category, amount: amount})
-        console.log(amount)
-        console.log(category)
-        console.log(month)
-        console.log("All added!")
         add.save((err) => { 
           if (err) { 
             throw err;
@@ -271,10 +247,6 @@ const ExpenseController = {
         const category = req.body.Text[1]
         const month = req._parsedUrl.href.substring(1)
         let add = new Expenses({month: month, category: category, amount: amount})
-        console.log(amount)
-        console.log(category)
-        console.log(month)
-        console.log("All added!")
         add.save((err) => { 
           if (err) { 
             throw err;
@@ -292,14 +264,12 @@ const ExpenseController = {
         let id = "62ebc7dcc73e84b86364835c"
         const debitSum = await DirectDebit.findOne({_id: id})
         const object = debitSum.total
-        console.log(object)
         let sum = 0;
         
         object.forEach(iterateFunction);
         
         function iterateFunction(item) {
           const num = Number(item)
-          console.log(num)
           sum += num
         }
         
@@ -307,16 +277,17 @@ const ExpenseController = {
           if (err) { 
             throw err;
           }
-          res.render("expenses/directdebit", {expenses: expenses.reverse(), total: sum})
+          res.render("expenses/directdebit", {expenses: expenses.reverse(), total: sum.toFixed(2)})
         })
         },
       UpdateDebit: async (req, res) => {
-        const amount = req.body.Text[0]
-        const purpose = req.body.Text[1]
-        const price = parseFloat(amount).toFixed(2)
-        let directDebit = new Expenses({month: purpose, category: "direct debit", amount: amount})
-        let object = "62ebc7dcc73e84b86364835c"
-        let update = await DirectDebit.findOneAndUpdate({_id: object}, { $push: {total : [price]}})
+        const amount = req.body.text
+        const purpose = req.body.Text
+        const price = parseFloat(amount)
+        let directDebit = new Expenses({month: purpose, category: "direct debit", amount: price})
+        let id = "62ebc7dcc73e84b86364835c"
+        let update = await DirectDebit.findOneAndUpdate({_id: id}, { $push: {total : [price]}})
+        update.save()
         directDebit.save((err) => { 
           if (err) { 
             throw err;

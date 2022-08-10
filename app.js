@@ -54,7 +54,6 @@ app.use(express.static('public'))
 const HomeRouter = require('./routes/home');
 const YearRouter = require('./routes/year');
 const UsersRouter = require('./routes/users');
-const MessagesRouter = require('./routes/messages');
 const MonthRouter = require('./routes/month');
 const SessionRouter = require('./routes/sessions');
 const expenseRouter = require('./routes/expense');
@@ -62,10 +61,7 @@ const expenseRouter = require('./routes/expense');
 // middleware function to check for logged-in users
 app.use('/', HomeRouter)
 app.use('/year', sessionChecker, YearRouter)
-app.use('/users/availability', sessionChecker, UsersRouter)
-app.use('/users/profile', sessionChecker, UsersRouter)
 app.use('/users', UsersRouter)
-app.use('/messages', sessionChecker, MessagesRouter)
 app.use('/month', sessionChecker, MonthRouter)
 app.use('/sessions', SessionRouter)
 app.use('/expenses', sessionChecker, expenseRouter)
