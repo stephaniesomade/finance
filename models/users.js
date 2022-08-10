@@ -18,18 +18,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     default: () => new Date(),
     immutable: true,
-  },
-  medical: {
-    type: String,
-  }, 
-  wishlist: { 
-    type: [String],
-  },
-  trainers: { 
-    type: [String],
-  },
-  extraDetails: { 
-    type: [String],
   }
 });
 

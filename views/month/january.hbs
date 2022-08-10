@@ -5,7 +5,6 @@
     Expenses for January <br>
     <br>
     <h6>Direct Debits: {{total}}
-      <br>
       Amount spent so Far this Month: - {{spent}}
 </h6>
 </h5>
@@ -14,7 +13,10 @@
     {{#each expenses}}
     {{this.category}} : -£{{this.amount}}
     <form action="/expenses/delete/january/{{this.category}}/{{this.amount}}" method="POST">
-    <button>Delete</button>
+      <button>Delete</button>
+    </form>
+    <form action="/expenses/update/january/{{this.category}}/{{this.amount}}" method="POST">
+      <button>Update</button>
     </form>
     <br>
     <br>

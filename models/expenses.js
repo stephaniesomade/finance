@@ -10,6 +10,9 @@ const expenseSchema = new mongoose.Schema({
   amount: {
     type: Number,
   },
+  personID: {
+    type: String
+  },
   createdAt: {
     type: Date,
     required: true,

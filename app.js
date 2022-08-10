@@ -56,15 +56,17 @@ const YearRouter = require('./routes/year');
 const UsersRouter = require('./routes/users');
 const MonthRouter = require('./routes/month');
 const SessionRouter = require('./routes/sessions');
-const expenseRouter = require('./routes/expense');
-
+const ExpenseRouter = require('./routes/expense');
+const DeleteRouter = require('./routes/delete');
 // middleware function to check for logged-in users
+
 app.use('/', HomeRouter)
 app.use('/year', sessionChecker, YearRouter)
 app.use('/users', UsersRouter)
 app.use('/month', sessionChecker, MonthRouter)
 app.use('/sessions', SessionRouter)
-app.use('/expenses', sessionChecker, expenseRouter)
+app.use('/expenses', sessionChecker, ExpenseRouter)
+app.use('/delete', sessionChecker, DeleteRouter)
 
 // initialize express-session to allow us track the logged-in user across sessions.
  

@@ -1,6 +1,6 @@
-const Month = require("../models/expenses")
 const Expenses = require("../models/expenses");
-const DirectDebit = require("../models/directdebit")
+const DirectDebit = require("../models/directdebit");
+const User = require("../models/users");
 
 const MonthController = { 
   January: async (req, res) => {
