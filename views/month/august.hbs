@@ -12,9 +12,13 @@
     <h5>
     {{#each expenses}}
     {{this.category}} : -£{{this.amount}}
-        <form action="/expenses/delete/august/{{this.category}}/{{this.amount}}" method="POST">
-    <button>Delete</button>
+    <form action="/expenses/delete/august/{{this.category}}/{{this.amount}}" method="POST">
+      <button>Delete</button>
     </form>
+    <form action="/expenses/{{this.month}}/{{this.id}}" method="get">
+      <button>Update</button>
+    </form>
+
     <br>
     <br>
     {{/each}}

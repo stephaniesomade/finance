@@ -21,6 +21,9 @@ Button with Update Expense Report
         <form action="/expenses/delete/march/{{this.category}}/{{this.amount}}" method="POST">
     <button>Delete</button>
     </form>
+        <form action="/expenses/{{this.month}}/{{this.id}}" method="get">
+      <button>Update</button>
+    </form>
     <br>
     <br>
     {{/each}}

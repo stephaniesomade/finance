@@ -18,11 +18,13 @@ const ExpenseController = {
         res.status(201).redirect("/expenses/january"); 
       }) 
     },
-    DeleteFromJanuary: async (req, res) => {
-      const amount = req.params.amount
-      const category = req.params.category
-      await Expenses.findOneAndDelete({ month: "january", category: category, amount: amount })
-      res.status(201).redirect("/month/january");
+    UpdateJan: async (req, res) => { 
+      const id = req.params.id
+      const category = req.body.category
+      const amount = req.body.amount
+      const payment = await Expenses.findById({_id: id})
+      const update = await Expenses.findOneAndUpdate({_id: id}, {category: category, amount: amount})
+      res.status(201).redirect("/month/january"); 
     },
     February: (req, res) => { 
         res.render("expenses/february")
@@ -40,11 +42,13 @@ const ExpenseController = {
         res.status(201).redirect("/expenses/february"); 
       })
     }, 
-    DeleteFromFebruary: async (req, res) => {
-      const amount = req.params.amount
-      const category = req.params.category
-      await Expenses.findOneAndDelete({ month: "february", category: category, amount: amount })
-      res.status(201).redirect("/month/february");
+    UpdateFeb: async (req, res) => { 
+      const id = req.params.id
+      const category = req.body.category
+      const amount = req.body.amount
+      const payment = await Expenses.findById({_id: id})
+      const update = await Expenses.findOneAndUpdate({_id: id}, {category: category, amount: amount})
+      res.status(201).redirect("/month/february"); 
     },
     March: (req, res) => { 
       res.render("expenses/march")
@@ -61,11 +65,13 @@ const ExpenseController = {
         res.status(201).redirect("/expenses/march"); 
       })
     }, 
-    DeleteFromMarch: async (req, res) => {
-      const amount = req.params.amount
-      const category = req.params.category
-      await Expenses.findOneAndDelete({ month: "march", category: category, amount: amount })
-      res.status(201).redirect("/month/march");
+    UpdateMar: async (req, res) => { 
+      const id = req.params.id
+      const category = req.body.category
+      const amount = req.body.amount
+      const payment = await Expenses.findById({_id: id})
+      const update = await Expenses.findOneAndUpdate({_id: id}, {category: category, amount: amount})
+      res.status(201).redirect("/month/march"); 
     },
     April: (req, res) => {
       res.render("expenses/april")
@@ -82,12 +88,14 @@ const ExpenseController = {
         res.status(201).redirect("/expenses/april"); 
       })
       }, 
-      DeleteFromApril: async (req, res) => {
-        const amount = req.params.amount
-        const category = req.params.category
-        await Expenses.findOneAndDelete({ month: "april", category: category, amount: amount })
-        res.status(201).redirect("/month/april");
-      },  
+      UpdateApr: async (req, res) => { 
+        const id = req.params.id
+        const category = req.body.category
+        const amount = req.body.amount
+        const payment = await Expenses.findById({_id: id})
+        const update = await Expenses.findOneAndUpdate({_id: id}, {category: category, amount: amount})
+        res.status(201).redirect("/month/april"); 
+      },
       May: (req, res) => {
         res.render("expenses/may")
       },
@@ -104,78 +112,86 @@ const ExpenseController = {
           res.status(201).redirect("/expenses/may"); 
         })
       },
-      DeleteFromMay: async (req, res) => {
-        const amount = req.params.amount
-        const category = req.params.category
-        await Expenses.findOneAndDelete({ month: "may", category: category, amount: amount })
-        res.status(201).redirect("/month/may");
-      },  
-      June: (req, res) => {
+        UpdateMay: async (req, res) => { 
+          const id = req.params.id
+          const category = req.body.category
+          const amount = req.body.amount
+          const payment = await Expenses.findById({_id: id})
+          const update = await Expenses.findOneAndUpdate({_id: id}, {category: category, amount: amount})
+          res.status(201).redirect("/month/may"); 
+        },
+        June: (req, res) => {
         res.render("expenses/june")
       },
-      AddToJune: (req, res) => { 
-        console.log("june route")
-        const amount = req.body.Text[0]
-        const category = req.body.Text[1]
-        const month = req._parsedUrl.href.substring(1)
-        let add = new Expenses({month: month, category: category, amount: amount})
-        add.save((err) => { 
-          if (err) { 
-            throw err;
-          }
-          res.status(201).redirect("/expenses/june"); 
-        })
+        AddToJune: (req, res) => { 
+          console.log("june route")
+          const amount = req.body.Text[0]
+          const category = req.body.Text[1]
+          const month = req._parsedUrl.href.substring(1)
+          let add = new Expenses({month: month, category: category, amount: amount})
+          add.save((err) => { 
+            if (err) { 
+              throw err;
+            }
+            res.status(201).redirect("/expenses/june"); 
+          })
       },
-      DeleteFromJune: async (req, res) => {
-        const amount = req.params.amount
-        const category = req.params.category
-        await Expenses.findOneAndDelete({ month: "june", category: category, amount: amount })
-        res.status(201).redirect("/month/june");
-      },  
-      July: (req, res) => {
+        UpdateJune: async (req, res) => { 
+          const id = req.params.id
+          const category = req.body.category
+          const amount = req.body.amount
+          const payment = await Expenses.findById({_id: id})
+          const update = await Expenses.findOneAndUpdate({_id: id}, {category: category, amount: amount})
+          res.status(201).redirect("/month/june"); 
+        },
+          July: (req, res) => {
         res.render("expenses/july")
       },
-      AddToJuly: (req, res) => { 
-        console.log("july route")
-        const amount = req.body.Text[0]
-        const category = req.body.Text[1]
-        const month = req._parsedUrl.href.substring(1)
-        let add = new Expenses({month: month, category: category, amount: amount})
-        add.save((err) => { 
-          if (err) { 
-            throw err;
-          }
-          res.status(201).redirect("/expenses/july"); 
-        })
+        AddToJuly: (req, res) => { 
+          console.log("july route")
+          const amount = req.body.Text[0]
+          const category = req.body.Text[1]
+          const month = req._parsedUrl.href.substring(1)
+          let add = new Expenses({month: month, category: category, amount: amount})
+          add.save((err) => { 
+            if (err) { 
+              throw err;
+            }
+            res.status(201).redirect("/expenses/july"); 
+          })
       }, 
-      DeleteFromJuly: async (req, res) => {
-        const amount = req.params.amount
-        const category = req.params.category
-        await Expenses.findOneAndDelete({ month: "july", category: category, amount: amount })
-        res.status(201).redirect("/month/july");
-      },  
-      August: (req, res) => {
+        UpdateJuly: async (req, res) => { 
+          const id = req.params.id
+          const category = req.body.category
+          const amount = req.body.amount
+          const payment = await Expenses.findById({_id: id})
+          const update = await Expenses.findOneAndUpdate({_id: id}, {category: category, amount: amount})
+          res.status(201).redirect("/month/july"); 
+        },
+          August: (req, res) => {
         res.render("expenses/august")
       },
-      AddToAugust: (req, res) => { 
-        const amount = req.body.Text[0]
-        const category = req.body.Text[1]
-        const month = req._parsedUrl.href.substring(1)
-        let add = new Expenses({month: month, category: category, amount: amount})
-        add.save((err) => { 
-          if (err) { 
-            throw err;
-          }
-          res.status(201).redirect("/expenses/august"); 
-        })
+        AddToAugust: (req, res) => { 
+          const amount = req.body.Text[0]
+          const category = req.body.Text[1]
+          const month = req._parsedUrl.href.substring(1)
+          let add = new Expenses({month: month, category: category, amount: amount})
+          add.save((err) => { 
+            if (err) { 
+              throw err;
+            }
+            res.status(201).redirect("/expenses/august"); 
+          })
       },
-      DeleteFromAugust: async (req, res) => {
-        const amount = req.params.amount
-        const category = req.params.category
-        await Expenses.findOneAndDelete({ month: "august", category: category, amount: amount })
-        res.status(201).redirect("/month/august");
-      },  
-      September: (req, res) => {
+        UpdateAug: async (req, res) => { 
+          const id = req.params.id
+          const category = req.body.category
+          const amount = req.body.amount
+          const payment = await Expenses.findById({_id: id})
+          const update = await Expenses.findOneAndUpdate({_id: id}, {category: category, amount: amount})
+          res.status(201).redirect("/month/august"); 
+      },
+        September: (req, res) => {
         res.render("expenses/september")
       },
       AddToSeptember: (req, res) => { 
@@ -190,13 +206,15 @@ const ExpenseController = {
           res.status(201).redirect("/expenses/september"); 
         })
       },
-      DeleteFromSeptember: async (req, res) => {
-        const amount = req.params.amount
-        const category = req.params.category
-        await Expenses.findOneAndDelete({ month: "september", category: category, amount: amount })
-        res.status(201).redirect("/month/september");
-      },  
-      October: (req, res) => {
+      UpdateSept: async (req, res) => { 
+        const id = req.params.id
+        const category = req.body.category
+        const amount = req.body.amount
+        const payment = await Expenses.findById({_id: id})
+        const update = await Expenses.findOneAndUpdate({_id: id}, {category: category, amount: amount})
+        res.status(201).redirect("/month/september"); 
+      },
+          October: (req, res) => {
         res.render("expenses/october")
       },
       AddToOctober: (req, res) => { 
@@ -211,14 +229,15 @@ const ExpenseController = {
           res.status(201).redirect("/expenses/october"); 
         })
       },
-      DeleteFromOctober: async (req, res) => {
-        const amount = req.params.amount
-        const category = req.params.category
-        await Expenses.findOneAndDelete({ month: "october", category: category, amount: amount })
-        res.status(201).redirect("/month/october");
-      },  
-
-      November: (req, res) => {
+      UpdateOct: async (req, res) => { 
+        const id = req.params.id
+        const category = req.body.category
+        const amount = req.body.amount
+        const payment = await Expenses.findById({_id: id})
+        const update = await Expenses.findOneAndUpdate({_id: id}, {category: category, amount: amount})
+        res.status(201).redirect("/month/october"); 
+      },
+        November: (req, res) => {
         res.render("expenses/november")
       },
       AddToNovember: (req, res) => { 
@@ -233,13 +252,15 @@ const ExpenseController = {
           res.status(201).redirect("/expenses/november"); 
         })
       },
-      DeleteFromNovember: async (req, res) => {
-        const amount = req.params.amount
-        const category = req.params.category
-        await Expenses.findOneAndDelete({ month: "november", category: category, amount: amount })
-        res.status(201).redirect("/month/november");
-      },  
-      December: (req, res) => {
+      UpdateNov: async (req, res) => { 
+        const id = req.params.id
+        const category = req.body.category
+        const amount = req.body.amount
+        const payment = await Expenses.findById({_id: id})
+        const update = await Expenses.findOneAndUpdate({_id: id}, {category: category, amount: amount})
+        res.status(201).redirect("/month/november"); 
+      },
+          December: (req, res) => {
         res.render("expenses/december")
       },
       AddToDecember: (req, res) => { 
@@ -254,13 +275,15 @@ const ExpenseController = {
           res.status(201).redirect("/expenses/december"); 
         })
       }, 
-      DeleteFromDecember: async (req, res) => {
-        const amount = req.params.amount
-        const category = req.params.category
-        await Expenses.findOneAndDelete({ month: "december", category: category, amount: amount })
-        res.status(201).redirect("/month/december");
-      },  
-      DirectDebit: async (req, res) => { 
+      UpdateDec: async (req, res) => { 
+        const id = req.params.id
+        const category = req.body.category
+        const amount = req.body.amount
+        const payment = await Expenses.findById({_id: id})
+        const update = await Expenses.findOneAndUpdate({_id: id}, {category: category, amount: amount})
+        res.status(201).redirect("/month/december"); 
+      },
+        DirectDebit: async (req, res) => { 
         let id = "62ebc7dcc73e84b86364835c"
         const debitSum = await DirectDebit.findOne({_id: id})
         const object = debitSum.total
@@ -279,6 +302,16 @@ const ExpenseController = {
           }
           res.render("expenses/directdebit", {expenses: expenses.reverse(), total: sum.toFixed(2)})
         })
+        },
+        Update: async (req, res) => { 
+          // renders the update page with the necessary details
+          const id = req.params.id
+          let month = req.params.month
+          let capsMonth = month.charAt(0).toUpperCase() + month.slice(1);
+          const obj = await Expenses.findById({_id: id})
+          const category = obj.category
+          const amount = obj.amount
+          res.render("month/update", {month: capsMonth, monthURL: month, category: category, amount: amount, id: id})
         },
       UpdateDebit: async (req, res) => {
         const amount = req.body.text
