@@ -6,7 +6,7 @@ const HomeController = {
     const completedList = await List.find({ completed: true });
     res.render("home/index", {
       list: list,
-      completedList: completedList.reverse(),
+      completedList: completedList
     });
   },
 };

@@ -54,6 +54,7 @@
     {{#each completedList}}
     <div class="container card">
       <ul>{{this.task}}</ul>
+      <ul>{{this.rating}}/10</ul>
       <form action="/list/move/{{this.task}}" method="POST">
       <div>
         <button type="submit">Move to Outstanding Tasks</button>
