@@ -1,76 +1,67 @@
-/* Add a black background color to the top navigation */
-.topnav {
-  background-color: #71D5E4;
-  overflow: hidden;
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 8px 19px;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: white;
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: white;
+h1 {
   color: white;
 }
 
-.pull-right { 
-  margin: 0 auto;
-  display: flex;
-  justify-content: right;
+h2, h3, h4 { 
+  color: lightblue;
+  font-family: "Courier New";
 }
 
-/* Button CSS */
-.button-8 {
-  background-color: #e1ecf4;
-  border-radius: 3px;
-  border: 1px solid #7aa7c7;
-  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
-  box-sizing: border-box;
-  color: #39739d;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.15385;
-  margin: 0;
-  outline: none;
-  padding: 8px .8em;
-  position: relative;
-  text-align: center;
+li {
+  font-family: "Courier New";
+}
+
+body { 
+  font-family:"Courier New";
+  margin-top: 40px;
+  padding: 20px;
+}
+
+header { 
+  background-color: lightblue;
+  margin: auto;
+  position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+}
+
+input { 
+  color: lightblue;
+  font-family: "Courier New";
+  padding: 5px 10px;
+  background-color:lightblue ;
+  border: none;
+  color: white;
+  padding: 16px 32px;
   text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
+  margin: 4px 2px;
 }
 
-.button-8:hover,
-.button-8:focus {
-  background-color: #b3d3ea;
-  color: #2c5777;
+button {
+  background-color:lightblue ;
+  font-family: "Courier New";
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer
+}
+/* Classes */
+/* Cards */
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.10s;
 }
 
-.button-8:focus {
-  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.button-8:active {
-  background-color: #a0c7e4;
-  box-shadow: none;
-  color: #2c5777;
+.container {
+  padding: 20px 5px;
 }

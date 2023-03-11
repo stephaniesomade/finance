@@ -1,15 +1,66 @@
-{{!-- Log in Page --}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/stylesheets/styles.css" />
+</head>
+
 <body>
-<div class="navbar">
+  <header>
+    <nav>
+      <div>
+        <div>
+          <div>
+            <font face="Courier New" size="11" color="White">
+              <center>ToDo List</center>
+            </font>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-<h4>New User</h4>
-<form action="/users/new" method="get">
-<button>Go to Form</button>
-</form>
+  <div class="card container">
+    <h2>Want to add new items to the list?</h2>
+    <h4>Rate how important it is to complete out of 10.</h4>
+    <form action="/list/new" method="POST">
+      <input name="input" type="text" placeholder="Type task here..." required />
+      <input name="input" type="text" placeholder="/10" style="width: 40px" required />
+      <input type="Submit">
+    </form>
+  </div>
+  
+  <br>
+  <br>
 
-<h4>Log In</h4>
-<form action="/sessions/new" method="get">
-<button>Go to Form</button>
-</form>
+  <div class="container card">
+    <h2>Outstanding Tasks:</h2>
+    {{#each list}}
+    <ul>
+      <form action="/list/{{this.task}}/complete" method="POST">
+        {{this.task}}
+        <br>
+        Urgency Level: {{this.rating}}
+        <input type="submit" value="Complete">
+      </form>
+    </ul>
+    {{/each}}
+    </div>
+    
+    <h2> Completed Tasks: </h2>
+    {{#each completedList}}
+    <div class="container card">
+      <ul>{{this.task}}</ul>
+      <form action="/list/move/{{this.task}}" method="POST">
+      <div>
+        <button type="submit">Move to Outstanding Tasks</button>
+      </div>
+      </form>
+    </div>
+    {{/each}}
+
 </body>
-
+</html>

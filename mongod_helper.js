@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 beforeAll(function(done) {
-  mongoose.connect('mongodb://127.0.0.1/finances', {
+  mongoose.connect('mongodb://127.0.0.1/todo_list', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   }, () => { 

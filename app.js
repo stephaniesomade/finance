@@ -24,22 +24,7 @@ app.use(
   })
   );
 
-app.use((req, res, next) => {
-  if (req.cookies.user_sid && !req.session.user) {
-    res.clearCookie("user_sid");
-  }
-  next();
-});
-
-const sessionChecker = (req, res, next) => {
-  if (!req.session.user && !req.cookies.user_sid) {
-    res.redirect("/sessions/new");
-  } else {
-    next();
-  }  
-}; 
-
-mongoose.connect('mongodb://localhost:27017/finances')
+mongoose.connect('mongodb://localhost:27017/todo_list')
 const database = mongoose.connection
 database.on('error', (error) => console.error(error))
 database.once('open', () => console.log("Connected to the Database"))
@@ -52,21 +37,10 @@ app.set("view engine", "hbs");
 app.use(express.static('public'))
 
 const HomeRouter = require('./routes/home');
-const YearRouter = require('./routes/year');
-const UsersRouter = require('./routes/users');
-const MonthRouter = require('./routes/month');
-const SessionRouter = require('./routes/sessions');
-const ExpenseRouter = require('./routes/expense');
-const DeleteRouter = require('./routes/delete');
-// middleware function to check for logged-in users
+const ListRouter = require('./routes/list');
 
 app.use('/', HomeRouter)
-app.use('/year', sessionChecker, YearRouter)
-app.use('/users', UsersRouter)
-app.use('/month', sessionChecker, MonthRouter)
-app.use('/sessions', SessionRouter)
-app.use('/expenses', sessionChecker, ExpenseRouter)
-app.use('/delete', sessionChecker, DeleteRouter)
+app.use('/list', ListRouter)
 
 // initialize express-session to allow us track the logged-in user across sessions.
  
