@@ -29,6 +29,9 @@ const database = mongoose.connection
 database.on('error', (error) => console.error(error))
 database.once('open', () => console.log("Connected to the Database"))
 
+// Bootstrap
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

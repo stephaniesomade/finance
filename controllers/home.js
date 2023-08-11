@@ -9,5 +9,8 @@ const HomeController = {
       completedList: completedList
     });
   },
+  Test: async (req, res) => { 
+    res.render("home/modal")
+  },
 };
 module.exports = HomeController;
