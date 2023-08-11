@@ -5,6 +5,6 @@ const HomeController = require("../controllers/home")
 const TestController = 
 
 router.get('/', HomeController.Index);
-router.get('/test', HomeController.Test);
+router.get('/tasks', HomeController.Tasks);
 
 module.exports = router;
