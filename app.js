@@ -40,11 +40,11 @@ app.set("view engine", "hbs");
 app.use(express.static('public'))
 
 const HomeRouter = require('./routes/home');
-const ListRouter = require('./routes/list');
+const TaskRouter = require('./routes/task');
 const BoardRouter = require('./routes/board');
 
 app.use('/', HomeRouter)
-app.use('/list', ListRouter)
+app.use('/task', TaskRouter)
 app.use('/board', BoardRouter)
 
 // initialize express-session to allow us track the logged-in user across sessions.

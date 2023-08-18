@@ -1,6 +1,6 @@
 const List = require("../models/list")
 
-const ListController = { 
+const TaskController = { 
   New: (req, res) => { 
     let input = req.body.input
     let rating = req.body.input[1]
@@ -28,4 +28,4 @@ const ListController = {
     res.status(201).redirect("/")
   }
 }
-module.exports = ListController;
+module.exports = TaskController;
