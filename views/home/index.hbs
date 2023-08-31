@@ -31,7 +31,7 @@
     <div class="modal">
       <div class="modal-content">
         <span class="close-button">&times;</span>
-        <form action="/list/new" method="POST">
+        <form action="/task/new" method="POST">
           <input
             name="input"
             type="text"
@@ -56,7 +56,7 @@
       <h2>Outstanding Tasks:</h2>
       {{#each list}}
         <ul>
-          <form action="/list/{{this.task}}/complete" method="POST">
+          <form action="/task/{{this.task}}/complete" method="POST">
             {{this.task}}
             <br />
             Urgency Level:
@@ -72,7 +72,7 @@
       <div class="container card">
         <ul>{{this.task}}</ul>
         <ul>{{this.rating}}/10</ul>
-        <form action="/list/move/{{this.task}}" method="POST">
+        <form action="/task/move/{{this.task}}" method="POST">
           <div>
             <button type="submit">Move to Outstanding Tasks</button>
           </div>

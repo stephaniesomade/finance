@@ -1,2 +1,46 @@
-<h1>Board</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <link rel="stylesheet" href="/stylesheets/styles.css" />
+  <link rel="stylesheet" href="/stylesheets/modal.css" />
+</head>
+
+<h1>Board</h1>
+<h1> Blocked Tasks</h1>
+<h1> Upcoming Tasks </h1>
+{{#each list}}
+  <ul>
+    <form action="/task/{{this.task}}/complete" method="POST">
+      {{this.task}}
+      <br />
+      Urgency Level:
+      {{this.rating}}
+      <input type="submit" value="Complete" />
+    </form>
+  </ul>
+  <ul>
+    <form action="/board/select/{{this.id}}" method="POST">
+      <button type="submit">Test</button>
+    </form>
+  </ul>
+
+{{/each}}
+
+<h1> Selected Tasks</h1>
+{{#each selected}}
+  <h1> {{this.task}} </h1>
+{{/each}}
+
+<h1> Completed Tasks</h1>
+{{#each completedList}}
+  <div class="container card">
+    <ul>{{this.task}}</ul>
+    <ul>{{this.rating}}/10</ul>
+    <form action="/task/move/{{this.task}}" method="POST">
+      <div>
+        <button type="submit">Move to Outstanding Tasks</button>
+      </div>
+    </form>
+  </div>
+{{/each}}

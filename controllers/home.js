@@ -1,9 +1,9 @@
-const List = require("../models/list");
+const Task = require("../models/task");
 
 const HomeController = {
   Index: async (req, res) => {
-    const list = await List.find({ completed: false });
-    const completedList = await List.find({ completed: true });
+    const list = await Task.find({ completed: false });
+    const completedList = await Task.find({ completed: true });
     res.render("home/index", {
       list: list,
       completedList: completedList
