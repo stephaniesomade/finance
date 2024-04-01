@@ -11,7 +11,7 @@ const ListController = {
       if (err) {
         throw err
       }
-      console.log("The task that has been added is: " + input)
+      console.log(`The task that has been added is: ${input[0]} with a rating of ${input[1]} `)
     res.status(201).redirect("/"); 
     })
   },
